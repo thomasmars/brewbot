@@ -6,7 +6,8 @@ from requests.exceptions import ConnectionError
 from dotenv import load_dotenv
 import os
 
-load_dotenv(dotenv_path='.env', verbose=True)
+env_path = os.path.dirname(os.path.realpath(__file__)) + '/.env'
+load_dotenv(dotenv_path=env_path, verbose=True)
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
